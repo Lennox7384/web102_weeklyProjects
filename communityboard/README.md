@@ -1,93 +1,54 @@
-# Space Exploration Community Board
+# Web Development Project 1 - *Space exploration Community Board*
 
-## Overview
-The **Space Exploration Community Board** is a web application built with **React**, **Vite**, and **JavaScript**. It serves as a resource and event hub for space enthusiasts, featuring a responsive card-based layout that showcases 10 unique space-related resources and events—such as NASA live streams, virtual telescope sessions, and Mars rover updates. The project uses functional components and table-based styling to create a visually appealing, space-themed interface.
+Submitted by: **Lennox Magak**
 
-This project was an opportunity to deepen my understanding of modern front-end development, component-based architecture, and responsive design.
+This web app: **is built with React, Vite, and JavaScript. It serves as a resource and event hub for space enthusiasts, featuring a responsive card-based layout that showcases 10 unique space-related resources and events—such as NASA live streams, virtual telescope sessions, and Mars rover updates. The project uses functional components and table-based styling to create a visually appealing, space-themed interface.**
 
----
+Time spent: **5 hours** hours spent in total
 
-## Features
-- **Responsive Design**: Cards adjust from 3 columns (desktop) to 2 (tablet) or 1 (mobile) based on screen size.
-- **Space Theme**: A dark, cosmic aesthetic with cyan and green accents inspired by space exploration.
-- **Functional Components**: Built using React hooks and modular components.
-- **Table Layout**: Utilizes `<table>`, `<tr>`, and `<td>` for structured card placement.
-- **Global & Scoped Styling**: Combines global styles (`index.css`) with component-specific styles (`App.css`).
+## Required Features
 
----
+The following **required** functionality is completed:
 
-## What I Learned
-Through this project, I gained hands-on experience and insights in the following areas:
+- [x] **There is a unique theme for events or resources relevant to a specific community**
+- [x] **At least 10 unique resources or events are displayed in a responsive card format**
 
-1. **React Fundamentals**:
-   - Creating and reusing functional components (e.g., `Card.jsx`).
-   - Managing component props to dynamically render content.
-   - Structuring a React app with a component folder and modular design.
+The following **optional** features are implemented:
 
-2. **Responsive Design**:
-   - Implementing media queries to adapt layouts for different screen sizes.
-   - Using CSS techniques to ensure a seamless user experience across devices.
+- [x] Buttons or links to a related resources are on each card component
+- [x] The site is responsive for both desktop and mobile formats
 
-3. **Styling in React**:
-   - Combining global styles (`index.css`) with scoped styles (`App.css`).
-   - Leveraging CSS variables and color schemes for theming.
-   - Styling tables creatively to achieve a card-based layout.
+The following **additional** features are implemented:
 
-4. **Vite Tooling**:
-   - Setting up a fast development environment with Vite.
-   - Understanding the default file structure (`App.jsx`, `main.jsx`, etc.) and customizing it.
+* [ ] List anything else that you added to improve the site's functionality!
 
-5. **Problem-Solving**:
-   - Dynamically splitting an array of resources into rows of 3 using `Array(Math.ceil())` and `slice()`.
-   - Balancing global and local CSS to avoid style conflicts.
+## Video Walkthrough
 
-6. **Theming**:
-   - Crafting a cohesive space-inspired design with a dark background and vibrant accents.
-   - Ensuring accessibility with readable text contrast.
+Here's a walkthrough of implemented required features:
 
----
+<img src='https://imgur.com/a/ZPzFWGK' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Project Structure
 
-![Structure of the project](projectStructure.png)
+GIF created with ...  
 
----
+[ScreenToGif](https://www.screentogif.com/) for Windows
 
-## Installation & Setup
-1. **Clone the Repository**:
-   ```bash
-   git clone 
-   cd space-community-board
+## Notes
 
-2. **Install Dependencies**:
-- Ensure Node.js and npm are installed.
-- Run:
-  ```
-  npm install
-  ```
-- Installs react, react-dom, and Vite dependencies as listed in package.json.
+During this build process, I did not experience any major challenges given the significant ammount of time I spent in mastering *timetabled* lab for last week. 
 
-3. **Run the Project**:
-npm run dev
+## License
 
-- Opens at http://localhost:5173 (Vite’s default port) in your browser.
+    Copyright [2025] [Lennox Magak]
 
-## Technologies Used
-- **React**: For building the UI with functional components.
-- **Vite**: For fast development and bundling.
-- **JavaScript**: Core logic and data management.
-- **CSS**: Styling with a mix of global and scoped approaches.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
----
-## Future Improvements
-- Add interactivity (e.g., filtering resources by category).
-- Incorporate a backend to fetch real-time event data.
-- Enhance accessibility with ARIA labels and keyboard navigation.
-- Add animations for card hover effects or page transitions.
+        http://www.apache.org/licenses/LICENSE-2.0
 
----
-
-## Acknowledgments
-- Inspired by my fascination with space exploration and community-driven learning.
-- First week's project for codePath's web102
-
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
