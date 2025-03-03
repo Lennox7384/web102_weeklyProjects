@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://imgur.com/a/ZPzFWGK' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/EuFKg5G.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 GIF created with ...  
