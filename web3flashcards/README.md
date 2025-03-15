@@ -1,33 +1,36 @@
-# Web Development Project 2 - *Web3 FlashCards*
+# Web Development Project 3 - *Web3 FlashCards*
 
 Submitted by: **Lennox Magak**
 
-This web app: **This is a simple, interactive React-based web application designed to help users learn the basics of Web3 and blockchain technology. Featuring 10 flashcards with beginner-friendly question-answer pairs, the app displays one card at a time in a randomized order. Users can click a card to flip it—revealing the answer with a smooth animation—and click "Next Card" to explore a new topic. Each card includes an image and is color-coded by category (e.g., Basics, Finance, Tech), set against a stylish Web3-inspired gradient background. Perfect for enthusiasts looking to grasp foundational concepts like blockchain, cryptocurrencies, and decentralized apps!**
+This web app: **This is an interactive, React-based web application designed to help users master the basics of Web3 and blockchain technology. Featuring 10 beginner-friendly flashcards with question-answer pairs, the app lets users study one card at a time, navigating forward, backward, or shuffling the deck. Users can input answers before flipping the card—revealing the solution with a smooth animation—and receive instant feedback on correctness with fuzzy matching. Each card includes an image and is color-coded by category (e.g., Basics, Finance, Tech), set against a stylish Web3-inspired gradient background. Track your progress with current and longest streaks, mark cards as mastered to remove them from the deck, and review your mastered list. Ideal for enthusiasts eager to learn foundational concepts like blockchain, cryptocurrencies, and decentralized apps through an engaging, hands-on experience!**
 
-Time spent: **10** hours spent in total
+Time spent: **17** hours spent in total
 
-## Required Features
+# Required Features
 
 The following **required** functionality is completed:
 
-- [X] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [X] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [X] **A list of card pairs is created**
-- [X] **Clicking on the card shows the corresponding component of the information pair**
-- [X] **Clicking the next button displays a random new card**
+- [X] **The user can enter their guess in a box before seeing the flipside of the card**
+- [X] **Clicking on a submit button shows visual feedback about whether the answer was correct or incorrect**
+- [X] **A back button is displayed on the card and can be used to return to the previous card in a set sequence**
+- [X] **A next button is displayed on the card and can be used to navigate to the next card in a set sequence**
 
 The following **optional** features are implemented:
 
-- [X] Cards contains images in addition to or in place of text
-- [X] Cards have different visual styles such as color based on their category
-  - [X] *visual style implemented*
+- [X] A shuffle button is used to randomize the order of the cards
+- [X] A user's answer may be counted as correct even when it is slightly different from the target answer
+- [X] A counter displays the user's current and longest streak of correct responses
+- [X] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
+The following **additional** features are implemented:
+
+* [X] When the user inputs a wrong answer, the frame of the flashcard turns red, otherwise green.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://i.imgur.com/i1uh8Sd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/X0rdk0C.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ...  
 
