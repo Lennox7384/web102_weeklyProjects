@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Flashcard from './components/Flashcard';
+import InputForm from './components/InputForm';
+import MasteredList from './components/MasteredList';
 
 // Import local images
 import blockchain from './images/blockchain.jpeg';
@@ -16,7 +18,7 @@ import web3 from './images/web3.jpg';
 
 const App = () => {
   // Flashcard data: 10 basic Web3 question-answer pairs with images and categories
-  const flashcards = [
+  const initialFlashcards = [ // Fixed typo: initialFlashcards (not initialflashcards)
     { question: "What is Web3?", answer: "Web3 is the next generation of the internet, powered by decentralized technologies like blockchain.", image: web3, category: "Basics" },
     { question: "What is a Blockchain?", answer: "A blockchain is a decentralized, secure ledger of transactions.", image: blockchain, category: "Basics" },
     { question: "What is a Cryptocurrency?", answer: "A digital currency secured by cryptography, like Bitcoin or Ethereum.", image: crypto, category: "Finance" },
@@ -29,46 +31,117 @@ const App = () => {
     { question: "What is an NFT?", answer: "A Non-Fungible Token, a unique digital asset on a blockchain.", image: nft, category: "Finance" },
   ];
 
-  // State for current card index and flip status
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  // State variables
+  const [flashcards, setFlashcards] = useState(initialFlashcards);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [feedback, setFeedback] = useState(null); // null, 'correct', 'incorrect'
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
+  const [masteredCards, setMasteredCards] = useState([]);
+  const [history, setHistory] = useState([]); // For back navigation
 
-  // Function to get a random card
-  const handleNextCard = () => {
-    const randomIndex = Math.floor(Math.random() * flashcards.length);
-    setCurrentCardIndex(randomIndex);
-    setIsFlipped(false); // Reset flip state for new card
+  // Fuzzy matching function
+  const isAnswerCorrect = (input, answer) => {
+    const cleanInput = input.trim().toLowerCase();
+    const cleanAnswer = answer.toLowerCase();
+    return cleanInput === cleanAnswer || cleanAnswer.includes(cleanInput);
   };
 
-  // Function to flip the card
-  const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
+  // Event handlers
+  const handleSubmit = () => {
+    if (!isFlipped) {
+      const correct = isAnswerCorrect(userInput, flashcards[currentIndex].answer);
+      setFeedback(correct ? 'correct' : 'incorrect');
+      setIsFlipped(true);
+      if (correct) {
+        setCurrentStreak(currentStreak + 1);
+        setLongestStreak(Math.max(longestStreak, currentStreak + 1));
+      } else {
+        setCurrentStreak(0);
+      }
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < flashcards.length - 1) {
+      setHistory([...history, currentIndex]);
+      setCurrentIndex(currentIndex + 1);
+    }
+    resetCardState();
+  };
+
+  const handleBack = () => {
+    if (history.length > 0) {
+      setCurrentIndex(history[history.length - 1]);
+      setHistory(history.slice(0, -1));
+    }
+    resetCardState();
+  };
+
+  const handleShuffle = () => {
+    const shuffled = [...flashcards].sort(() => Math.random() - 0.5);
+    setFlashcards(shuffled);
+    setCurrentIndex(0);
+    setHistory([]);
+    resetCardState();
+  };
+
+  const handleMastered = () => {
+    const masteredCard = flashcards[currentIndex];
+    setMasteredCards([...masteredCards, masteredCard]);
+    setFlashcards(flashcards.filter((_, i) => i !== currentIndex));
+    setCurrentIndex(Math.min(currentIndex, flashcards.length - 2)); // Adjust index
+    setHistory([]);
+    resetCardState();
+  };
+
+  const resetCardState = () => {
+    setIsFlipped(false);
+    setUserInput('');
+    setFeedback(null);
   };
 
   return (
     <div className="app">
-      {/* Header Section */}
       <div className="header">
         <h1>Web3 Flashcards</h1>
         <p>Learn the basics of Web3 and blockchain technology!</p>
-        <p>Total Cards: {flashcards.length}</p>
+        <p>Total Cards: {flashcards.length} | Streaks: Current {currentStreak} / Longest {longestStreak}</p>
       </div>
 
-      {/* Card Display Section */}
       <div className="card-container">
-        <Flashcard
-          question={flashcards[currentCardIndex].question}
-          answer={flashcards[currentCardIndex].answer}
-          image={flashcards[currentCardIndex].image}
-          category={flashcards[currentCardIndex].category}
-          isFlipped={isFlipped}
-          onClick={handleCardClick}
-        />
+        {flashcards.length > 0 ? (
+          <Flashcard
+            question={flashcards[currentIndex].question}
+            answer={flashcards[currentIndex].answer}
+            image={flashcards[currentIndex].image}
+            category={flashcards[currentIndex].category}
+            isFlipped={isFlipped}
+            onClick={() => setIsFlipped(!isFlipped)}
+            feedback={feedback}
+          />
+        ) : (
+          <p>No cards left to study!</p>
+        )}
       </div>
 
-      {/* Controls Section */}
       <div className="controls">
-        <button onClick={handleNextCard}>Next Card</button>
+        <InputForm
+          userInput={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          onSubmit={handleSubmit}
+          disabled={isFlipped}
+        />
+        <button onClick={handleBack} disabled={history.length === 0}>Back</button>
+        <button onClick={handleNext} disabled={currentIndex === flashcards.length - 1}>Next</button>
+        <button onClick={handleShuffle}>Shuffle</button>
+        <button onClick={handleMastered} disabled={flashcards.length === 0}>Mark Mastered</button>
+      </div>
+
+      <div className="mastered-section">
+        <MasteredList masteredCards={masteredCards} />
       </div>
     </div>
   );

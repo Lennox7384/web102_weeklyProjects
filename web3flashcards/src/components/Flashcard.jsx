@@ -1,15 +1,18 @@
 import React from 'react';
 
-const Flashcard = ({ question, answer, image, category, isFlipped, onClick }) => {
+const Flashcard = ({ question, answer, image, category, isFlipped, onClick, feedback }) => {
   const getCardClass = () => {
+    let baseClass = "flashcard";
     switch (category) {
-      case "Basics": return "flashcard basics";
-      case "Finance": return "flashcard finance";
-      case "Tech": return "flashcard tech";
-      case "Platforms": return "flashcard platforms";
-      case "Tools": return "flashcard tools";
-      default: return "flashcard";
+      case "Basics": baseClass += " basics"; break;
+      case "Finance": baseClass += " finance"; break;
+      case "Tech": baseClass += " tech"; break;
+      case "Platforms": baseClass += " platforms"; break;
+      case "Tools": baseClass += " tools"; break;
     }
+    if (feedback === 'correct') baseClass += " correct";
+    if (feedback === 'incorrect') baseClass += " incorrect";
+    return baseClass;
   };
 
   return (

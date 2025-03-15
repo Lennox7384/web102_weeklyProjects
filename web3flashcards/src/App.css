@@ -25,6 +25,8 @@
 .card-container {
   margin-bottom: 20px;
   perspective: 1000px; /* For 3D effect */
+  display: flex; /* Add flexbox to center content */
+  justify-content: center; /* Center horizontally */
 }
 
 .flashcard {
@@ -63,12 +65,12 @@
 }
 
 .card-front {
-  z-index: 2; /* Ensure front is above back initially */
+  z-index: 2;
 }
 
 .card-back {
   transform: rotateY(180deg);
-  z-index: 1; /* Back behind front when not flipped */
+  z-index: 1;
 }
 
 .flashcard.basics .card-front, .flashcard.basics .card-back { background-color: #3498db; color: white; }
@@ -76,6 +78,9 @@
 .flashcard.tech .card-front, .flashcard.tech .card-back { background-color: #e74c3c; color: white; }
 .flashcard.platforms .card-front, .flashcard.platforms .card-back { background-color: #f1c40f; color: #2c3e50; }
 .flashcard.tools .card-front, .flashcard.tools .card-back { background-color: #9b59b6; color: white; }
+
+.flashcard.correct { border: 4px solid #27ae60; }
+.flashcard.incorrect { border: 4px solid #c0392b; }
 
 .card-front img, .card-back img {
   max-width: 100%;
@@ -89,7 +94,11 @@
 }
 
 /* Controls Section */
-.controls button {
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button, .input-form button {
   padding: 10px 20px;
   font-size: 1.1em;
   background-color: #ffffff;
@@ -97,11 +106,52 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 0 5px;
   transition: background-color 0.3s ease;
 }
 
-.controls button:hover {
+.controls button:hover, .input-form button:hover {
   background-color: #d1d8e0;
+}
+
+.controls button:disabled, .input-form button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Input Form */
+.input-form {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.input-form input {
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  width: 200px;
+}
+
+/* Mastered List */
+.mastered-list {
+  color: #ffffff;
+}
+
+.mastered-list h2 {
+  font-size: 1.5em;
+}
+
+.mastered-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mastered-list li {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
 }
 
 /* Responsive Design */
@@ -115,8 +165,12 @@
     font-size: 2em;
   }
 
-  .controls button {
+  .controls button, .input-form button {
     padding: 8px 16px;
     font-size: 1em;
+  }
+
+  .input-form input {
+    width: 150px;
   }
 }
