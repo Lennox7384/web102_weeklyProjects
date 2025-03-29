@@ -1,0 +1,296 @@
+/* Reset default margins and ensure full height */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Dark overlay to ensure text readability */
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Ensure all content is above the overlay */
+.app-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Column: History */
+.history-column {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.history-column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.history-item {
+  margin-bottom: 20px;
+}
+
+.history-item img {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 5px;
+}
+
+.history-item p {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Center Column: Main Content */
+.main-column {
+  flex: 2;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.main-column h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.main-column p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.photo-display {
+  margin-bottom: 20px;
+}
+
+.attributes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.attribute-box {
+  background-color: #d4a017;
+  color: black;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.attribute-label {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #d3d3d3;
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.tag {
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #b88c14;
+}
+
+.main-column img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.discover-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.discover-button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: #ff4d4d;
+}
+
+/* Right Column: Ban List */
+.ban-list-column {
+  flex: 1;
+  padding: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.ban-list-column h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.ban-list-column p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.ban-item {
+  display: block;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 15px;
+  margin: 5px 0;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.ban-item:hover {
+  background-color: #e04343;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .history-column, .main-column, .ban-list-column {
+    flex: none;
+    width: 100%;
+    border: none;
+    max-height: none;
+  }
+
+  .history-column {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .ban-list-column {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .main-column img {
+    max-height: 300px;
+  }
+
+  .history-column h2, .ban-list-column h2 {
+    font-size: 1.3rem;
+  }
+
+  .main-column h1 {
+    font-size: 2rem;
+  }
+
+  .main-column p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .history-item img {
+    max-width: 120px;
+  }
+
+  .main-column img {
+    max-height: 250px;
+  }
+
+  .attribute-box, .attribute-label {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .discover-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .main-column h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-column p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-item img {
+    max-width: 100px;
+  }
+
+  .main-column img {
+    max-height: 200px;
+  }
+
+  .attribute-box, .attribute-label {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .discover-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .main-column h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-column p {
+    font-size: 0.8rem;
+  }
+
+  .history-column h2, .ban-list-column h2 {
+    font-size: 1.1rem;
+  }
+
+  .ban-list-column p {
+    font-size: 0.8rem;
+  }
+}
