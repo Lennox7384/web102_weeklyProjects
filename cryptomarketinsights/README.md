@@ -1,46 +1,44 @@
-# Web Development Project 5 - *Crypto Market Insights*
+# Web Development Project 6 - *Crypto Market Insights*
 
 Submitted by: **Lennox Magak**
 
 This web app: **Crypto Market Insights, is a sleek interactive dashboard built with React and Vite, designed to provide a comprehensive overview of the cryptocurrency market. It fetches real-time data from the CoinGecko API to display key metrics for the top 50 coins by market cap, including current prices, 24-hour price changes, and trading volumes. Users can filter coins by name, price change direction (positive or negative), and minimum trading volume, while summary statistics highlight high-volume coins, average price changes, and volume ranges. Featuring a modern, neon-themed design with particle animations, the app offers an engaging way to track price trends, trading volumes, and market insights for top cryptocurrencies.**
 
-Time spent: **12** hours spent in total
+Time spent: **27** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The site has a dashboard displaying a list of data fetched using an API call**
-  - The dashboard should display at least 10 unique items, one per row
-  - The dashboard includes at least two features in each row
-- [x] **`useEffect` React hook and `async`/`await` are used**
-- [x] **The app dashboard includes at least three summary statistics about the data** 
-  - The app dashboard includes at least three summary statistics about the data, such as:
-    - *insert details here*
-- [x] **A search bar allows the user to search for an item in the fetched data**
-  - The search bar **correctly** filters items in the list, only displaying items matching the search query
-  - The list of results dynamically updates as the user types into the search bar
-- [x] **An additional filter allows the user to restrict displayed items by specified categories**
-  - The filter restricts items in the list using a **different attribute** than the search bar 
-  - The filter **correctly** filters items in the list, only displaying items matching the filter attribute in the dashboard
-  - The dashboard list dynamically updates as the user adjusts the filter
+- [x] **Clicking on an item in the list view displays more details about it**
+  - Clicking on an item in the dashboard list navigates to a detail view for that item
+  - Detail view includes extra information about the item not included in the dashboard view
+  - The same sidebar is displayed in detail view as in dashboard view
+  - *To ensure an accurate grade, your sidebar **must** be viewable when showing the details view in your recording.*
+- [X] **Each detail view of an item has a direct, unique URL link to that item’s detail view page**
+  -  *To ensure an accurate grade, the URL/address bar of your web browser **must** be viewable in your recording.*
+- [X] **The app includes at least two unique charts developed using the fetched data that tell an interesting story**
+  - At least two charts should be incorporated into the dashboard view of the site
+  - Each chart should describe a different aspect of the dataset
+
 
 The following **optional** features are implemented:
 
-- [x] Multiple filters can be applied simultaneously
-- [x] Filters use different input types
-  - e.g., as a text input, a dropdown or radio selection, and/or a slider
-- [x] The user can enter specific bounds for filter values
+- [X] The site’s customized dashboard contains more content that explains what is interesting about the data 
+  - e.g., an additional description, graph annotation, suggestion for which filters to use, or an additional page that explains more about the data
+- [X] The site allows users to toggle between different data visualizations
+  - User should be able to use some mechanism to toggle between displaying and hiding visualizations 
 
+  
 The following **additional** features are implemented:
 
-* [x] Mouse movement sensitivity for dropdown filter appearence and disappearence!
+* [ ] List anything else that you added to improve the site's functionality!
 
-## Video Walkthrough
+## Video walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/VHLb6Kq.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/nyP8mMd.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ...  
 
@@ -48,7 +46,9 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+While I was able to implement a side bar for the detailed view of each coin, the sidebar (across the top of the detailed view) in not functional.
+The reiquirement is still met nonetheless, since the same sidebar in the dashboard is avalable in the detailed view.
+I will keep working on it to find a way to potentially improve it.
 
 ## License
 
