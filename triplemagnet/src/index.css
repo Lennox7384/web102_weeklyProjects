@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+@layer base {
+  html {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    background-color: #f3f4f6; /* Light gray background for the entire app */
+    color: #1f2937; /* Dark gray text for high contrast */
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #1f2937;
+  }
+
+  a {
+    color: #1d4ed8; /* Primary blue for links */
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Override global a:hover for header links */
+  a.header-link:hover {
+    text-decoration: none;
+  }
+
+  /* Override global a:hover for static underline links */
+  a.static-underline:hover {
+    text-decoration: none;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Ensures consistent text size across browsers */
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none; /* Handled by Tailwind's focus:outline-none and focus:ring */
+  }
+}
+
+/* Custom animated underline for header links */
+.header-link {
+  position: relative;
+  display: inline-block;
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #1D4ED8; /* Matches text-primary */
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Static underline for Startup Teams */
+.static-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.static-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #1D4ED8; /* Matches text-primary */
+  visibility: hidden;
+}
+
+.static-underline:hover::after {
+  visibility: visible;
+}
