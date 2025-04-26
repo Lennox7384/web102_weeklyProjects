@@ -2,7 +2,7 @@
 
 Submitted by: **Lennox Magak**
 
-This web app: **DeFiOrbit is this cool, space-themed web forum I built using React and Supabase, perfect for DeFi fans to chat and share ideas. You can post stuff with a title, some text, or even an image, and everything looks awesome with a starry background, glowing purple accents, and fun animations. It’s super easy to use—create posts, edit or delete them, upvote your favorites, and drop comments. Plus, it works great on any device**
+This web app: **is a space-themed  forum I built using React and Supabase, perfect for DeFi fans to chat and share ideas. You can post stuff with a title, some text, or even an image, and everything looks awesome with a starry background, glowing purple accents, and fun animations. It’s super easy to use—create posts, edit or delete them, upvote your favorites, and drop comments. Plus, it works great on any device**
 
 Time spent: **12** hours spent in total
 
